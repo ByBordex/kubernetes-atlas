@@ -1,9 +1,9 @@
-# KUBERNETES-TEMPLATES
-## Usage
+# KUBERNETES-ATLAS
+## USAGE
 1. Replace placeholders in files. Ex: `namespace: <NAMESPACE>` to `namespace: production`.
 2. If secrets are used, add them to your .gitignore `*-secrets.yml`.
 
-## Try it yourself locally
+## TRY IT YOURSELF IN LOCAL!
 ### Prerequirements
 1. [Docker](https://docs.docker.com/get-started/)
 2. [Kubectl](https://kubernetes.io/es/docs/tasks/tools/install-kubectl/)
