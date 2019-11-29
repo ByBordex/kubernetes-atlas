@@ -32,5 +32,6 @@ spec:
           - name: config-volume
             configMap:
               defaultMode: 0700
-              name: configmap-dbdump
+              name: dbdump-configmap
+
   
