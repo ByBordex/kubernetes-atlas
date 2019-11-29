@@ -1,0 +1,22 @@
+
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: greeting-job
+  namespace: cron
+spec:
+  schedule: "* * * * *"
+  concurrencyPolicy: Forbid
+  failedJobsHistoryLimit: 1
+  successfulJobsHistoryLimit: 5
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: greeting-container
+            image: busybox:latest
+            command: ["/bin/sh"]
+            args: [ "-c", 'echo "Hello world, its $(date)"']
+          restartPolicy: OnFailure
+  
