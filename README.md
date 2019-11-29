@@ -5,9 +5,9 @@
 
 ## TRY IT YOURSELF IN LOCAL!
 ### Prerequirements
-1. [Docker](https://docs.docker.com/get-started/)
-2. [Kubectl](https://kubernetes.io/es/docs/tasks/tools/install-kubectl/)
-3. [Kind](https://github.com/kubernetes-sigs/kind)
+- Install [Docker](https://docs.docker.com/get-started/)
+- Install [Kubectl](https://kubernetes.io/es/docs/tasks/tools/install-kubectl/)
+- Install [Kind](https://github.com/kubernetes-sigs/kind)
 
 ### Load an example
 1. Create a kubernetes cluster with kind `kind create cluster`
