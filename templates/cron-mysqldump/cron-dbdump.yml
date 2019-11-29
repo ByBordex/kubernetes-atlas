@@ -1,0 +1,36 @@
+
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: dbbackup
+  namespace: <NAMESPACE>
+spec:
+  schedule: "<CRONS_EXPRESSION>"
+  concurrencyPolicy: Forbid
+  failedJobsHistoryLimit: 1
+  successfulJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: dump-operator
+            image: <IMAGE>
+            command:
+            - /bin/dump.sh
+            envFrom:
+            - secretRef:
+                name: secrets-dbbackup
+            volumeMounts:
+            - name: config-volume
+              mountPath: /bin/dump.sh
+              readOnly: true
+              subPath: dump.sh
+          restartPolicy: OnFailure
+
+          volumes:
+          - name: config-volume
+            configMap:
+              defaultMode: 0700
+              name: configmap-dbdump
+  
